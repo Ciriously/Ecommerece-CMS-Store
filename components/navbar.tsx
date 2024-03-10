@@ -1,12 +1,13 @@
 import Link from "next/link";
-
+// import { useEffect } from "react";
 import MainNav from "@/components/main-nav";
 import Container from "@/components/ui/container";
-// import NavbarActions from "@/components/navbar-actions";
+import NavbarActions from "@/components/navbar-actions";
 import getCategories from "@/actions/get-categories";
 
 const Navbar = async () => {
   const categories = await getCategories();
+  // console.log("Categories:", categories); // Log fetched categories
 
   return (
     <div className="border-b">
@@ -16,7 +17,7 @@ const Navbar = async () => {
             <p className="font-bold text-xl">STORE</p>
           </Link>
           <MainNav data={categories} />
-          {/* <NavbarActions /> */}
+          <NavbarActions />
         </div>
       </Container>
     </div>
