@@ -30,18 +30,14 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
-    try {
-      console.log(items); // Log items array
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-        {
-          productIds: items.map((item) => item.id),
-        }
-      );
-      window.location = response.data.url;
-    } catch (error) {
-      console.error(error); // Log error
-    }
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+      {
+        productIds: items.map((item) => item.id),
+      }
+    );
+
+    window.location = response.data.url;
   };
 
   return (
